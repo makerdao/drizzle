@@ -30,4 +30,23 @@ contract DrizzleTest is DSTest {
         drizzle.drizzle();
         assertEq(uint(1),uint(1));
     }
+
+    function testCustomDrizzleDoesNotRevert() public {
+        bytes32[] memory ilks = new bytes32[](2);
+        ilks[0] = bytes32(0x4554482d41000000000000000000000000000000000000000000000000000000);
+        ilks[1] = bytes32(0x4241542d41000000000000000000000000000000000000000000000000000000);
+
+        drizzle.drizzle(ilks);
+        assertEq(uint(1),uint(1));
+    }
+
+    function testCustomDrizzle() public {
+        // Jug.drip() does not revert if ilk is invalid
+        bytes32[] memory ilks = new bytes32[](2);
+        ilks[0] = bytes32(0x4554482d41000000000000000000000000000000000000000000000000000000);
+        ilks[1] = bytes32(0x4241542d41000444000000000000000000000000000000000000000000000000);
+
+        drizzle.drizzle(ilks);
+        assertEq(uint(1),uint(1));
+    }
 }

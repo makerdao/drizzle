@@ -41,12 +41,16 @@ contract Drizzle {
         _jug = JugLike(dss_jug);
     }
 
-    function drizzle() external {
+    function drizzle(bytes32[] memory ilks) public {
         _pot.drip();
-        bytes32[] memory ilks = _reg.list();
         for (uint i = 0; i < ilks.length; i++) {
             _jug.drip(ilks[i]);
         }
+    }
+
+    function drizzle() external {
+        bytes32[] memory ilks = _reg.list();
+        drizzle(ilks);
     }
 
     function registry() external view returns (address) {

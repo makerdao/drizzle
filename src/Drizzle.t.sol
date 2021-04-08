@@ -23,7 +23,7 @@ contract DrizzleTest is DSTest {
 
     function setUp() public {
         hevm = Hevm(address(CHEAT_CODE));
-        drizzle = new Drizzle(ILK_REGISTRY, POT, JUG);
+        drizzle = new Drizzle();
     }
 
     function testDrizzleDoesNotRevert() public {
@@ -48,5 +48,17 @@ contract DrizzleTest is DSTest {
 
         drizzle.drizzle(ilks);
         assertEq(uint(1),uint(1));
+    }
+
+    function testRegistry() public {
+        assertEq(drizzle.registry(), ILK_REGISTRY);
+    }
+
+    function testPot() public {
+        assertEq(drizzle.pot(), POT);
+    }
+
+    function testJug() public {
+        assertEq(drizzle.jug(), JUG);
     }
 }

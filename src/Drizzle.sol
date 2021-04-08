@@ -17,6 +17,10 @@
 
 pragma solidity ^0.6.12;
 
+interface Chainlog {
+    function getAddress(bytes32) external returns (address);
+}
+
 interface IlkRegistry {
     function list() external view returns (bytes32[] memory);
 }
@@ -31,14 +35,15 @@ interface JugLike {
 
 contract Drizzle {
 
+    Chainlog    private constant  _chl = Chainlog(0xdA0Ab1e0017DEbCd72Be8599041a2aa3bA7e740F);
     IlkRegistry private immutable _reg;
     PotLike     private immutable _pot;
     JugLike     private immutable _jug;
 
-    constructor(address ilk_reg, address dss_pot, address dss_jug) public {
-        _reg = IlkRegistry(ilk_reg);
-        _pot = PotLike(dss_pot);
-        _jug = JugLike(dss_jug);
+    constructor() public {
+        _reg = IlkRegistry(_chl.getAddress("ILK_REGISTRY"));
+        _pot = PotLike(_chl.getAddress("MCD_POT"));
+        _jug = JugLike(_chl.getAddress("MCD_JUG"));
     }
 
     function drizzle(bytes32[] memory ilks) public {

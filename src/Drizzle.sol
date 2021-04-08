@@ -15,7 +15,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-pragma solidity ^0.6.7;
+pragma solidity ^0.6.12;
 
 interface IlkRegistry {
     function list() external view returns (bytes32[] memory);
@@ -31,19 +31,19 @@ interface JugLike {
 
 contract Drizzle {
 
-    IlkRegistry private _reg;
-    PotLike     private _pot;
-    JugLike     private _jug;
+    IlkRegistry private immutable _reg;
+    PotLike     private immutable _pot;
+    JugLike     private immutable _jug;
 
-    constructor(address ilkRegistry, address dss_pot, address dss_jug) public {
-        _reg = IlkRegistry(ilkRegistry);
+    constructor(address ilk_reg, address dss_pot, address dss_jug) public {
+        _reg = IlkRegistry(ilk_reg);
         _pot = PotLike(dss_pot);
         _jug = JugLike(dss_jug);
     }
 
     function drizzle(bytes32[] memory ilks) public {
         _pot.drip();
-        for (uint i = 0; i < ilks.length; i++) {
+        for (uint256 i = 0; i < ilks.length; i++) {
             _jug.drip(ilks[i]);
         }
     }

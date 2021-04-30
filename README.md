@@ -7,6 +7,6 @@ Base cost of approximately ~95k gwei. ~15k gwei per ilk dripped.
 
 ## On-chain
 
-Kovan: [0x65EF88A05A8a6c7684c331F13F6D72002Ab5823a](https://kovan.etherscan.io/address/0x65EF88A05A8a6c7684c331F13F6D72002Ab5823a#code)
+Kovan: [0x5ec91A9c5F74e6192F3303f155e7c1db4D704F88](https://kovan.etherscan.io/address/0x5ec91A9c5F74e6192F3303f155e7c1db4D704F88#code)
 
-Mainnet: [0xE2B6CEDa12BF7beCa3ad250cEc7DaF3A48aEc0B2](https://etherscan.io/address/0xE2B6CEDa12BF7beCa3ad250cEc7DaF3A48aEc0B2#code)
+Mainnet: [0x79eBe7CBBb7ed8037A615214Fcf67406cd3312A3](https://etherscan.io/address/0x79eBe7CBBb7ed8037A615214Fcf67406cd3312A3#code)

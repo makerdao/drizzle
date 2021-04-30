@@ -11,7 +11,7 @@ interface Hevm {
 contract DrizzleTest is DSTest {
 
     //Mainnet
-    address constant public ILK_REGISTRY = 0x8b4ce5DCbb01e0e1f0521cd8dCfb31B308E52c24;
+    address constant public ILK_REGISTRY = 0x5a464C28D19848f44199D003BeF5ecc87d090F87;
     address constant public JUG = 0x19c0976f590D67707E62397C87829d896Dc0f1F1;
     address constant public POT = 0x197E90f9FAD81970bA7976f33CbD77088E5D7cf7;
 
